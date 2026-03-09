@@ -8,6 +8,11 @@
 #include "LED.h"
 #include "UsartTest.h"
 
+extern volatile bool L_pressed;
+extern volatile bool R_pressed;
+extern volatile bool A_pressed;
+extern volatile bool B_pressed;
+
 void key_init();
 void scan_KEYL();
 

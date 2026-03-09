@@ -44,44 +44,69 @@ OF SUCH DAMAGE.
 int main(void)
 {
     systick_config();
-	usart_init();
 	key_init();
 	LEDenable();
 	Lcd_Init();
 	
-	usart_dma_enable();
-	
 	SetLED1(true);
 	
-	//pwm_config(200,10000);  // 忘了是什么总之暂时用不到
+	//pwm_config(200,10000);  // 不知道是什么总之暂时用不上
+	//printf("test1114514\n");
+	
 
     while(1) {
-		// 返回收到的串口信息
-		if(g_recv_complete_flag == SET){
-            g_recv_complete_flag = RESET;
-            printf("DMA Received: %s\r\n", g_recv_buff);
-            printf("Length: %d\r\n", g_recv_length);
-    
-            g_recv_length = 0;
-        }
-		
-		//CESHI
-    Lcd_NewFrame();
-		Lcd_DrawFilledRectangle(0,0,240,280,COLOR_WHITE);
-    Lcd_DrawImage(10,10,20,20, gImage_food1);
-		Lcd_DrawImage(10,30,20,20, gImage_food2);
-		Lcd_DrawImage(10,50,20,20, gImage_food3);
-		Lcd_DrawFilledRectangle(10,170,20,20,COLOR_BODY_R2);
-		Lcd_DrawRectangle(10,170,20,20,COLOR_BODY_R1);
-		Lcd_DrawFilledRectangle(30,170,20,20,COLOR_BODY_R3);
-		Lcd_DrawRectangle(30,170,20,20,COLOR_BODY_R1);
-		Lcd_DrawImage(50,170,20,20,gImage_head_right);
-	//Lcd_ShowString(20,100,"贪吃蛇#$a1A",COLOR_YELLOW,32);
-	//Lcd_ShowString(20,150,"草履虫/;89yG",COLOR_LIGHTGREEN,24);
-	//Lcd_ShowString(20,200,"游戏",COLOR_DARKBLUE,16);
-    // 显示结束，刷新屏幕
-    Lcd_ShowFrame();
-		//CESHI
+		//当前界面
+		switch(current_screen){
+			//：主菜单
+			case mainscreen:{
+				Lcd_NewFrame();
+				//当前光标位置
+				switch(current_cursor){
+				    case START:{
+					    Lcd_DrawImage(0,0,240,280,gImage_start);
+						break;
+					}
+					case MODE_SET:{
+					    Lcd_DrawImage(0,0,240,280,gImage_mode);
+						break;
+					}
+					case CONFIG:{
+						//暂时没有设置功能
+					    //Lcd_DrawImage(0,0,240,280,gImage_start);
+						break;
+					}
+				}
+				Lcd_ShowFrame();
+				if(A_pressed){
+					if(current_cursor==0) current_cursor=2;
+					else current_cursor--;
+					A_pressed = false;
+				}
+				if(B_pressed){
+					if(current_cursor==2) current_cursor=0;
+					else current_cursor++;
+					B_pressed = false;
+				}
+				if(R_pressed){
+					if(current_cursor==START) current_screen = game_interface;
+					//其他两个界面没做
+					R_pressed = false;
+				}
+				if(L_pressed){
+				    L_pressed = false;
+				}
+				break;
+			}
+			case game_interface:{
+				//游戏初始化
+				if(!game_has_init){
+		            Lcd_NewFrame();
+		            game_init();
+		            Lcd_ShowFrame();
+		        }
+				break;
+			}
+		}
 		
 		
     }

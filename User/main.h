@@ -47,39 +47,42 @@ typedef unsigned char u8;
 typedef unsigned short int u16;
 typedef unsigned int  u32;
 
-//Æ½Ì¨¿â
+//
 #define GD32F450 1
 #include "gd32f4xx.h"
 #include "gd32f4xx_it.h"
 #include "gd32f4xx_libopt.h"
 #include "systick.h"
 
-//ÏîÄ¿¿â
+//
 //LED
 #include "LED.h"
-//¹¦·Å
+//åŠŸæ”¾
 #include "Amplifier.h"
-//×ÖÄ£
+//å­—æ¨¡
 #include "Font.h"
-//°´¼ü
+//æŒ‰é”®
 #include "Key.h"
-//ÆÁÄ»Çı¶¯
+//å±å¹•é©±åŠ¨
 #include "Screen.h"
-//Ò¡¸Ë
+//xyæ‘‡æ†
 #include "Joystick.h"
-//»ù±¾»æÖÆ
+//ç®€å•ç»˜å›¾
 #include "BasicDrawing.h"
 
-//´®¿Ú
-#include "UsartTest.h"
-//¶¨Ê±Æ÷
+//å®šæ—¶å™¨
 #include "Timer.h"
 //PWM
 #include "PWM.h"
-//DMA
-#include "DMA.h"
+
 //SPI
 #include "SPI.h"
+
+//æ¸¸æˆé€»è¾‘
+#include "Snake.h"
+#include "Food.h"
+#include "Score.h"
+#include "game.h"
 
 /* led spark function */
 void led_spark(void);

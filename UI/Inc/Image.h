@@ -23,6 +23,16 @@ extern const unsigned char gImage_food2[800];
 extern const unsigned char gImage_food3[800];
 //头-右
 extern const unsigned char gImage_head_right[800];
+//左
+extern const unsigned char gImage_head_left[800];
+//下
+extern const unsigned char gImage_head_down[800];
+//上
+extern const unsigned char gImage_head_up[800];
+
+//58x20
+//分数栏
+extern const unsigned char gImage_score[2320];
 
 
 #endif

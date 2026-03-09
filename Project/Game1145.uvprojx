@@ -415,24 +415,9 @@
               <FilePath>..\Hardware\Src\Screen.c</FilePath>
             </File>
             <File>
-              <FileName>Motor.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Hardware\Src\Motor.c</FilePath>
-            </File>
-            <File>
               <FileName>Motor.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Hardware\Inc\Motor.h</FilePath>
-            </File>
-            <File>
-              <FileName>UsartTest.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Hardware\Src\UsartTest.c</FilePath>
-            </File>
-            <File>
-              <FileName>UsartTest.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Hardware\Inc\UsartTest.h</FilePath>
             </File>
             <File>
               <FileName>Timer.c</FileName>
@@ -450,19 +435,14 @@
               <FilePath>..\Hardware\Src\PWM.c</FilePath>
             </File>
             <File>
+              <FileName>Motor.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\Src\Motor.c</FilePath>
+            </File>
+            <File>
               <FileName>PWM.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Hardware\Inc\PWM.h</FilePath>
-            </File>
-            <File>
-              <FileName>DMA.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Hardware\Src\DMA.c</FilePath>
-            </File>
-            <File>
-              <FileName>DMA.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\Hardware\Inc\DMA.h</FilePath>
             </File>
             <File>
               <FileName>SPI.c</FileName>
@@ -473,6 +453,26 @@
               <FileName>SPI.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\Hardware\Inc\SPI.h</FilePath>
+            </File>
+            <File>
+              <FileName>Random.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\Src\Random.c</FilePath>
+            </File>
+            <File>
+              <FileName>Random.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Hardware\Inc\Random.h</FilePath>
+            </File>
+            <File>
+              <FileName>Eeprom.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Hardware\Src\Eeprom.c</FilePath>
+            </File>
+            <File>
+              <FileName>Eeprom.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\Hardware\Inc\Eeprom.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -704,6 +704,16 @@
               <FileType>5</FileType>
               <FilePath>..\GameLogic\Inc\Score.h</FilePath>
             </File>
+            <File>
+              <FileName>game.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\GameLogic\Src\game.c</FilePath>
+            </File>
+            <File>
+              <FileName>game.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\GameLogic\Inc\game.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -715,19 +725,9 @@
               <FilePath>..\UI\Src\Image.c</FilePath>
             </File>
             <File>
-              <FileName>Sentence.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\UI\Src\Sentence.c</FilePath>
-            </File>
-            <File>
               <FileName>Image.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\UI\Inc\Image.h</FilePath>
-            </File>
-            <File>
-              <FileName>Sentence.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\UI\Inc\Sentence.h</FilePath>
             </File>
             <File>
               <FileName>BasicDrawing.c</FileName>

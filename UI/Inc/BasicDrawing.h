@@ -31,9 +31,10 @@
 #define COLOR_LGRAY      (0XC618)      
 #define COLOR_LGRAYBLUE  (0XA651) 
 #define COLOR_LBBLUE     (0X2B12)
-#define COLOR_BODY_R1    (0xFA05)
-#define COLOR_BODY_R2    (0xFCAE)
-#define COLOR_BODY_R3    (0xFDF6)
+#define COLOR_BODY_R1    (0xFA05)  //蛇身描边
+#define COLOR_BODY_R2    (0xFCAE)  //蛇身深红
+#define COLOR_BODY_R3    (0xFDF6)  //蛇身浅红
+#define COLOR_SCORE_BG   (0xAF78)  //分数栏背景色
 
 /*============================================================================
  *                               颜色模式定义
@@ -91,24 +92,11 @@ void Lcd_ShowChar(uint16_t x, uint16_t y, char ch, uint16_t fc,  uint8_t size);
 
 void Lcd_ShowChineseChar(uint16_t x, uint16_t y, const char *str, uint16_t fc);
 
-void Lcd_ShowASCIIString(uint16_t x, uint16_t y, const char *str, uint16_t fc, uint8_t size);
-
 void Lcd_ShowString(uint16_t x, uint16_t y, const char *str, uint16_t fc,uint8_t size);
 
 void Lcd_ShowNumber(uint16_t x, uint16_t y, uint32_t num, uint8_t len, uint16_t fc,  uint8_t size);
 
 void Lcd_ShowFloat(uint16_t x, uint16_t y, float num, uint8_t len, uint16_t fc, uint8_t size);
 
-/*============================================================================
- *                               游戏界面绘制
- *============================================================================*/
-//蛇头
-void darw_snake_head(int x, int y, int direction);
-//蛇身
-void draw_snake_body(int x, int y, int type);
-//擦除尾部
-void erase_snake_tail(int x,int y);
-//食物
-void draw_food(int x, int y, int type);
 
 #endif

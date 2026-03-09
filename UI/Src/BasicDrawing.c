@@ -432,7 +432,7 @@ void Lcd_ShowChar(uint16_t x, uint16_t y, char ch, uint16_t fc, uint8_t size)
     uint8_t buffer[64];            // 存放点阵数据
     uint8_t charWidth = size / 2;  // ASCII字符宽度是高度的一半
     uint8_t bytesPerRow = (charWidth + 7) / 8;  // 每行占用的字节数
-	printf("wid: %u,bayePerRow: %u \n",charWidth,bytesPerRow);
+	//printf("wid: %u,bayePerRow: %u \n",charWidth,bytesPerRow);
 
     // 获取字符点阵
     Lcd_GetAsciiBitmap(ch, size, buffer);
@@ -633,7 +633,7 @@ void Lcd_Show32ChineseChar(uint16_t x, uint16_t y, const char *str, uint16_t fc)
  */
 void Lcd_ShowString(uint16_t x, uint16_t y, const char *str, uint16_t fc, uint8_t size)
 {
-    printf("To Show: %s\n", str);
+    //printf("To Show: %s\n", str);
     uint16_t i = 0; 
     uint16_t x0 = x;
     uint16_t y0 = y;
@@ -648,8 +648,9 @@ void Lcd_ShowString(uint16_t x, uint16_t y, const char *str, uint16_t fc, uint8_
         
         if (utf8Len == 3) {  // 汉字(UTF-8 3字节)
             // 提取并显示汉字
-			char chineseChar[4] = {0};  // 用于存储单个汉字
-            strncpy(chineseChar, str + i, 3); // 拷贝3个字节的汉字
+			char chineseChar[4] = {0};
+            memcpy(chineseChar, str + i, 3);  // memcpy 更直接，不依赖 null
+            chineseChar[3] = '\0';            // 强制 null 结尾
 			switch(size){
 				case 16:
 					Lcd_Show16ChineseChar(x0, y0, chineseChar, fc);
@@ -736,43 +737,4 @@ void Lcd_ShowFloat(uint16_t x, uint16_t y, float num, uint8_t len, uint16_t fc,u
         Lcd_ShowChar(x + (len - 2 + i) * charWidth, y, temp + '0', fc, size);
     }
 }
-/*============================================================================
- *                               游戏界面绘制
- *============================================================================*/
-//头/身都先只做一个颜色
-//蛇头
-void darw_snake_head(int x, int y, int direction){
-//
-}
 
-//蛇身(深）
-void draw_snake_body(int x, int y, int type){
-	if(type){
-    Lcd_DrawFilledRectangle(x,y,20,20,COLOR_BODY_R2);  //深
-	Lcd_DrawRectangle(x,y,20,20,COLOR_BODY_R1);
-	}
-	else{
-    Lcd_DrawFilledRectangle(x,y,20,20,COLOR_BODY_R3);  //浅
-	Lcd_DrawRectangle(x,y,20,20,COLOR_BODY_R1);
-	}
-}
-
-//擦除尾部
-void erase_snake_tail(int x,int y){
-	Lcd_DrawFilledRectangle(x,y,20,20,COLOR_WHITE);
-}
-
-//食物
-void draw_food(int x, int y, int type){
-    switch(type){
-        case 1:
-            Lcd_DrawImage(x, y, 20, 20, gImage_food1);   //星星
-            break;
-        case 2:
-            Lcd_DrawImage(x, y, 20, 20, gImage_food2);   //爱心
-            break;
-        case 3:
-            Lcd_DrawImage(x, y, 20, 20, gImage_food3);   //钻石
-            break;
-    }
-}
